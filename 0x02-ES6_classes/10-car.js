@@ -10,9 +10,6 @@ export default class Car {
   }
 
   set brand(brand) {
-    // if (typeof brand !== 'string') {
-    //   throw new TypeError(`${typeof brand} is not assignable to type 'string'`);
-    // }
     this._brand = brand;
   }
 
@@ -21,9 +18,6 @@ export default class Car {
   }
 
   set motor(motor) {
-    // if (typeof motor !== 'string') {
-    //   throw new TypeError(`${typeof motor} is not assignable to type 'string'`);
-    // }
     this._motor = motor;
   }
 
@@ -32,9 +26,6 @@ export default class Car {
   }
 
   set color(color) {
-    // if (typeof color !== 'string') {
-    //   throw new TypeError(`${typeof color} is not assignable to type 'string'`);
-    // }
     this._color = color;
   }
 
