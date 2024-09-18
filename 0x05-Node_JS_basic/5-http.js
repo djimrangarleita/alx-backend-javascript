@@ -13,13 +13,12 @@ const app = http.createServer(async (req, res) => {
     try {
       const { count, groupedByField } = await countStudents(db);
       res.write('This is the list of our students\n');
-      res.write(`Number of students: ${count}\n`);
-      const stream = [];
+      res.write(`Number of students: ${count}`);
       for (const key of Object.keys(groupedByField)) {
         const { count, list } = groupedByField[key];
-        stream.push(`Number of students in ${key}: ${count}. List: ${list.join(', ')}`);
+        res.write(`\nNumber of students in ${key}: ${count}. List: ${list.join(', ')}`);
       }
-      res.end(stream.join('\n'));
+      res.end();
     } catch (error) {
       res.end(error.message);
     }
