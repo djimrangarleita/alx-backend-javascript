@@ -11,13 +11,13 @@ app.get('/students', async (_, res) => {
   try {
     const { count, groupedByField } = await countStudents(db);
     res.write('This is the list of our students\n');
-    res.write(`Number of students: ${count}\n`);
+    res.write(`Number of students: ${count}`);
     // const stream = [];
     for (const key of Object.keys(groupedByField)) {
       const { count, list } = groupedByField[key];
-      res.write(`Number of students in ${key}: ${count}. List: ${list.join(', ')}\n`);
+      res.write(`\nNumber of students in ${key}: ${count}. List: ${list.join(', ')}`);
     }
-    res.send();
+    res.end();
   } catch (error) {
     res.send(error.message);
   }
