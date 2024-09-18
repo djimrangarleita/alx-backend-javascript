@@ -18,7 +18,7 @@ app.get('/students', async (_, res) => {
     }
     res.end();
   } catch (error) {
-    res.send(error.message);
+    res.end(error.message);
   }
 });
 
