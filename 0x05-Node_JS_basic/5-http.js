@@ -3,7 +3,7 @@ const countStudents = require('./3-read_file_async');
 
 const PORT = 1245;
 const HOSTNAME = 'localhost';
-const db = process.argv[2];
+const db = process.argv[2] || 'database.csv';
 
 const app = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
