@@ -36,10 +36,10 @@ const countStudents = async (path) => {
   }
   const students = readAndParse(data);
   const groupedByField = groupByField(students);
-  console.log(`Number of students: ${students.length}`);
+  // console.log(`Number of students: ${students.length}`);
   for (const key of Object.keys(groupedByField)) {
     const { count, list } = groupedByField[key];
-    console.log(`Number of students in ${key}: ${count}. List: ${list.join(', ')}`);
+    // console.log(`Number of students in ${key}: ${count}. List: ${list.join(', ')}`);
   }
   return { count: students.length, groupedByField };
 };
