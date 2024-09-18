@@ -4,10 +4,8 @@ const app = express();
 const countStudents = require('./3-read_file_async');
 
 const PORT = 1245;
-const HOSTNAME = 'localhost';
 const db = process.argv[2] || 'database.csv';
 
-// app.setHeader('Content-Type', 'text/plain');
 app.get('/students', async (_, res) => {
   res.set('Content-Type', 'text/plain');
   try {
