@@ -14,7 +14,7 @@ const readAndParse = (data) => {
   });
 };
 
-const sortPerField = (students) => {
+const groupByField = (students) => {
   const studentsPerField = {};
   students.forEach((student) => {
     if (!studentsPerField[student.field]) {
@@ -35,12 +35,13 @@ const countStudents = async (path) => {
     throw Error('Cannot load the database');
   }
   const students = readAndParse(data);
-  const sortedPerField = sortPerField(students);
+  const groupedByField = groupByField(students);
   console.log(`Number of students: ${students.length}`);
-  for (const key of Object.keys(sortedPerField)) {
-    const { count, list } = sortedPerField[key];
+  for (const key of Object.keys(groupedByField)) {
+    const { count, list } = groupedByField[key];
     console.log(`Number of students in ${key}: ${count}. List: ${list.join(', ')}`);
   }
+  return { count: students.length, groupedByField };
 };
 
 module.exports = countStudents;
