@@ -3,7 +3,7 @@ const countStudents = require('./3-read_file_async');
 
 const PORT = 1245;
 const HOSTNAME = 'localhost';
-const db = process.argv[2] || 'database.csv';
+const db = process.argv[2];
 
 const app = http.createServer(async (req, res) => {
   res.setHeader('Content-Type', 'text/plain');
@@ -11,8 +11,8 @@ const app = http.createServer(async (req, res) => {
 
   if (url === '/students') {
     try {
-      const { count, groupedByField } = await countStudents(db);
       res.write('This is the list of our students\n');
+      const { count, groupedByField } = await countStudents(db);
       res.write(`Number of students: ${count}`);
       for (const key of Object.keys(groupedByField)) {
         const { count, list } = groupedByField[key];
