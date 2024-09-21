@@ -102,4 +102,19 @@ describe('GET /login', () => {
       done();
     });
   });
+
+  it('should return undefined when username not available in request body', (done) => {
+    request.post({
+      url,
+      json: true,
+    }, (error, res, body) => {
+      if (error) {
+        return done(error);
+      }
+      expect(res.statusCode).to.equal(200);
+      expect(res.headers['content-type']).to.contain('text/plain');
+      expect(body).to.equal('Welcome undefined');
+      done();
+    });
+  });
 });
