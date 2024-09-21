@@ -2,10 +2,10 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const sendPaymentRequestToApi = require('./3-payment');
-const Utils = require('./utils');
 
 describe('#sendPaymentRequestToApi()', () => {
   let consoleSpy;
+
   beforeEach(() => {
     consoleSpy = sinon.spy(console, 'log');
   });

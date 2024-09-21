@@ -1,8 +1,3 @@
-/* eslint-disable jest/valid-expect */
-/* eslint-disable jest/prefer-expect-assertions */
-/* eslint-disable jest/expect-expect */
-/* eslint-disable no-unused-expressions */
-
 const { expect } = require('chai');
 const sinon = require('sinon');
 
